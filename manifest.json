@@ -10,12 +10,14 @@
             "24" : "images/icon24.png",
             "32" : "images/icon32.png"
         }
-    }, 
+    },
     "permissions": [
         "https://*.cybozu.com/*",
         "notifications",
+        "storage",
         "cookies"
     ],
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
     "background" : {
         "scripts" : [
             "js/lib/jquery-3.4.1.min.js",
@@ -26,7 +28,16 @@
             "js/Constants.js",
             "js/CybozuTimer.js",
             "js/CybozuNotifier.js",
+            "js/CybozuStorage.js",
             "js/main.js"
         ]
-    }
+    },
+    // "optional_permissions": [
+    //     "tabs"
+    // ],
+    "options_page": "/html/options.html"
+    // "options_ui": {
+    //     "chrome_style": true,
+    //     "page": "options.html"
+    // },
 }

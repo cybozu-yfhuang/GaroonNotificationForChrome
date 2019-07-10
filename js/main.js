@@ -15,8 +15,6 @@ api.login(Constants.USERNAME, Constants.PASSWORD, function(){
 
 
     }, Constants.Refresh_Interval);
-
-
 });
 
 

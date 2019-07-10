@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Desktop Setting</title>
+    <link href="./options.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+    <div id="optionsDiv">   
+        <div id="intervalDiv">
+            <div>更新间隔</div>
+            <div>
+                <select id="intervalSelect">
+                    <option v-for="option in intervalOptions" v-bind:value="option">
+                        {{option}}
+                    </option>
+                </select>分钟
+            </div>
+        </div>
+
+        <div id="alarmDiv">
+            <div>预定的通知</div>
+            <div>
+                <select id="alarmSelect">
+                    <option v-for="option in alarmOptions" v-bind:value="option">
+                        {{option}}
+                    </option>
+                </select>分钟
+            </div>
+        </div>
+    </div>
+
+
+    <div style="height: 1px; background-color: cornflowerblue; margin-top: 5px"></div>
+
+    </div>
+
+    <div id="loginDiv">
+        <form >
+            <div>Login</div>
+            <div>
+                <input id="loginNameInput" type="text" placeholder="Login Name"/>
+            </div>
+            <div>
+                <input id="loginPasswordInput" type="password" placeholder="Password" />
+            </div>
+
+            <div>
+                <input type="submit" value="Login" />
+            </div>
+
+        </form>
+
+    </div>
+
+
+</body>
+
+<script type="text/javascript" src="../js/lib/vue.js"></script>
+<script type="text/javascript" src='../js/CybozuStorage.js'></script>
+<script type="text/javascript" src="./options.js"></script>
+
+</html>
