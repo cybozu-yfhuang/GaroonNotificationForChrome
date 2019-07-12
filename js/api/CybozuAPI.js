@@ -35,16 +35,7 @@ class CybozuAPI {
 
         $.post(url, JSON.stringify(data), function(resp){
             console.log(resp);
-            if (resp.success) {
-                for(let element of resp.schedule) {
-                    let notificationID = "scheudle" + element.id;
-                    CybozuNotifier.notify(notificationID, element.title, element.body, function(nid) {
-                        if(nid == notificationID) {
-                            chrome.tabs.create({url: element.url});           
-                        }
-                    });
-                }
-            }
+            callback(resp);
         },"json") ;
     }
 
@@ -55,7 +46,7 @@ class CybozuAPI {
      */
     scheduleEventList(start, end, callback) {
         let url = Constants.GAROON_PATH + Constants.SCHEDULE_EVENT_LIST;
-        Console.log("schedule event list url is " + url);
+        console.log("schedule event list url is " + url);
         let data = {"start": start.toJSON()};
         if (end) {
             data["end"] = end.toJSON();
@@ -64,7 +55,8 @@ class CybozuAPI {
         let dataString = JSON.stringify(data);
         console.log("schedule event list data : " + dataString);
         $.post(url, dataString, function(resp) {
-            callback();
+            console.log(resp);
+            callback(resp);
         });
     }
 
@@ -84,7 +76,7 @@ class CybozuAPI {
     mailReceive(callback) {
         let url = Constants.GAROON_PATH + Constants.MAIL_RECEIVE;
         $.post(url , null , function(resp) {
-            callback();
+            callback(resp);
         });
     }
 }
