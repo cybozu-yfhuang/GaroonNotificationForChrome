@@ -4,41 +4,38 @@ class CybozuStorage {
         this.alreadyLogin = false;
         this.updateInterval = 10; //minutes
         this.alarmTime = 5; //minutes
-        this.storage = Chrome.storage.local;
+        this.storage = localStorage;
     }
 
     static sharedInstance() {
         if(!this.instance) {
             this.instance = new CybozuStorage();
-            self._loadAll();
+            this.instance._loadAll();
         }
         return this.instance;
     }
 
-    static save() {
-        this.storage.set({
-            "alreadyLogin": this.alreadyLogin,
-            "updateInterval": this.updateInterval,
-            "alarmTime": this.alarmTime
-        });
+    save() {
+        this.storage.setItem("alreadyLogin", this.alreadyLogin);
+        this.storage.setItem("updateInterval", this.updateInterval);
+        this.storage.setItem("alarmTime", this.alarmTime);
     }
 
     // private ===========================
     _loadAll() {
         this._loadProperty("alreadyLogin", false);
-        this._loadProperty("updateInterval", 10);
+        this._loadProperty("updateInterval", 20);
         this._loadProperty("alarmTime", 5);
     }
 
     _loadProperty(name, defaultValue) {
-        this.storage.get(name, function(results) {
-            if (results[name]) {
-                this[name] = results[name];
-            }
-            else {
-                this[name] = defaultValue;
-            }
-        });
+        let value = this.storage.getItem(name);
+        if (!value) {
+            this[name] = defaultValue;
+        }
+        else {
+            this[name] = value;
+        }
     }
 
     // _saveProperty(name, value) {

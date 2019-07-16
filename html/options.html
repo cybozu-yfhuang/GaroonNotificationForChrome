@@ -1,94 +1,99 @@
-<!DOCTYPE html>
-<html lang="en">
+    <!DOCTYPE html>
+    <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <title>Desktop Setting</title>
-    <link href="./options.css" rel="stylesheet" type="text/css" />
-    <link href="../css/jquery-ui.min.css" rel="stylesheet" type="text/css" />
-    <link href="../css/jquery-ui.structure.min.css" type="text/css" />
-    <link href="../css/jquery-ui.theme.min.css" type="text/css" />
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <title>Desktop Setting</title>
+        <link href="./options.css" rel="stylesheet" type="text/css" />
+        <link href="../css/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+        <link href="../css/jquery-ui.structure.min.css" type="text/css" />
+        <link href="../css/jquery-ui.theme.min.css" type="text/css" />
+    </head>
 
-<body>
+    <body>
 
-    <div id="tabs">
+        <div id="tabs">
 
-        <ul>
-            <li><a href="#optionsDiv">常规</a></li>
-            <li><a href="#loginDiv">账号</a></li>
-        </ul>
+            <ul>
+                <li><a href="#optionsDiv">常规</a></li>
+                <li><a href="#loginDiv">账号</a></li>
+            </ul>
 
-        <div id="optionsDiv">
-            <div id="intervalDiv">
-                <div>
-                    <p>更新间隔</p>
-                </div>
-                <div>
-                    <select id="intervalSelect">
-                        <option v-for="option in intervalOptions" v-bind:value="option">
-                            {{option}}
-                        </option>
-                    </select>分钟
-                </div>
-            </div>
-
-            <div id="alarmDiv">
-                <div>
-                    <p>预定的通知</p>
-                </div>
-                <div>
-                    <select id="alarmSelect">
-                        <option v-for="option in alarmOptions" v-bind:value="option">
-                            {{option}}
-                        </option>
-                    </select>分钟
-                </div>
-            </div>
-        </div>
-
-        <div id="loginDiv">
-            <div>
-
-            </div>
-            <form>
-                <div>
-                    <p>URL</p>
-                </div>
-                <div>
-                    <input id="URLInput" type="text" placeholder="URL" />
+            <div id="optionsDiv">
+                <div id="intervalDiv">
+                    <div>
+                        <p>更新间隔</p>
+                    </div>
+                    <div>
+                        <select id="intervalSelect" v-model="interval">
+                            <option v-for="option in intervalOptions" v-bind:value="option">
+                                {{option}}
+                            </option>
+                        </select>分钟
+                    </div>
                 </div>
 
-                <div>
-                    <p>Login Name</p>
-                </div>
-                <div>
-                    <input id="loginNameInput" type="text" placeholder="Login Name" />
-                </div>
-
-                <div>
-                    <p>Password</p>
-                </div>
-
-                <div>
-                    <input id="loginPasswordInput" type="password" placeholder="Password" />
+                <div id="alarmDiv">
+                    <div>
+                        <p>预定的通知</p>
+                    </div>
+                    <div>
+                        <select id="alarmSelect" v-model="alarm">
+                            <option v-for="option in alarmOptions" v-bind:value="option">
+                                {{option}}
+                            </option>
+                        </select>分钟
+                    </div>
                 </div>
 
                 <div style="margin-top: 20px;">
-                    <input id="saveButton" type="submit" value="Login" />
+                    <input id="saveButton" type="submit" value="Save" />
                 </div>
-            </form>
+
+            </div>
+
+            <div id="loginDiv">
+                <div id="accountDiv">
+                    
+                </div>
+                <form>
+                    <div>
+                        <p>URL</p>
+                    </div>
+                    <div>
+                        <input id="URLInput" type="text" placeholder="URL" />
+                    </div>
+
+                    <div>
+                        <p>Login Name</p>
+                    </div>
+                    <div>
+                        <input id="loginNameInput" type="text" placeholder="Login Name" />
+                    </div>
+
+                    <div>
+                        <p>Password</p>
+                    </div>
+
+                    <div>
+                        <input id="loginPasswordInput" type="password" placeholder="Password" />
+                    </div>
+
+                    <div style="margin-top: 20px;">
+                        <input id="loginButton" type="submit" value="Login" />
+                    </div>
+                </form>
+
+            </div>
 
         </div>
 
-    </div>
+    </body>
 
-</body>
+    <script type="text/javascript" src="../js/lib/vue.js"></script>
+    <script type="text/javascript" src="../js/lib/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="../js/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src='../js/CybozuStorage.js'></script>
+    <script type="text/javascript" src="./options.js"></script>
 
-<script type="text/javascript" src="../js/lib/vue.js"></script>
-<script type="text/javascript" src="../js/lib/jquery-3.4.1.min.js"></script>
-<script type="text/javascript" src="../js/lib/jquery-ui.min.js"></script>
-<script type="text/javascript" src='../js/CybozuStorage.js'></script>
-<script type="text/javascript" src="./options.js"></script>
-
-</html>
+    </html>
