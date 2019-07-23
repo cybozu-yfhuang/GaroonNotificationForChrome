@@ -1,13 +1,12 @@
 
-
 var api = new CybozuAPI();
 var start = new Date(Date.now().valueOf() - 30 * 24 * 60 * 60 * 1000);
 var end = new Date(Date.now().valueOf());
 
 let timer = new CybozuTimer();
 
-api.login(Constants.USERNAME, Constants.PASSWORD, function(){
-
+api.login(Constants.USERNAME, Constants.PASSWORD, function(resp){
+    
     timer.startTimer(function () {
         api.notificationList(start, end, function(resp) {
             if (resp.success) {

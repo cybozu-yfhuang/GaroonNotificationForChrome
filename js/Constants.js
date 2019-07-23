@@ -1,5 +1,5 @@
 class Constants {
-    static GAROON_PATH = "https://why.cybozu.com/g/v1/";
+    static GAROON_PATH = "https://why.s.cybozu.com/g/v1/";
 
     //API
     static Login_API = "auth/login";
@@ -10,6 +10,9 @@ class Constants {
 
     static USERNAME = "yfhuang";
     static PASSWORD = "1";
+
+    static BASIC_USERNAME = "kunai";
+    static BASIC_PASSWORD = "kunai";
 
     //Setting
     // static Refresh_Interval = 10 * 60 * 1000; //millisecond

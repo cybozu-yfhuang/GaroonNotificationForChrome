@@ -1,6 +1,8 @@
 class CybozuAPI {
     
-    constructor(){}
+    constructor(){
+        this.client = new APIClient();
+    }
 
     /* 
     userName: String
@@ -12,7 +14,7 @@ class CybozuAPI {
         console.info("login url is: " + url);
         let data = {"username": userName,
                     "password": password};
-        $.post(url, JSON.stringify(data), function(resp) {
+        this.client.post(url, JSON.stringify(data), function(resp) {
             console.log(resp);
             if (callback != null) {
                 callback();
@@ -33,7 +35,7 @@ class CybozuAPI {
         }
         console.log("notification list data is " + JSON.stringify(data));
 
-        $.post(url, JSON.stringify(data), function(resp){
+        this.client.post(url, JSON.stringify(data), function(resp){
             console.log(resp);
             callback(resp);
         },"json") ;

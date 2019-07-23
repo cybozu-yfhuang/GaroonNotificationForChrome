@@ -23,21 +23,16 @@
             "js/lib/jquery-3.4.1.min.js",
             "js/lib/vue.min.js",
             
+            "js/Constants.js",    
+
+            "js/api/APIClient.js",
             "js/api/CybozuAPI.js",
             
-            "js/Constants.js",
             "js/CybozuTimer.js",
             "js/CybozuNotifier.js",
             "js/CybozuStorage.js",
             "js/main.js"
         ]
     },
-    // "optional_permissions": [
-    //     "tabs"
-    // ],
     "options_page": "/html/options.html"
-    // "options_ui": {
-    //     "chrome_style": true,
-    //     "page": "options.html"
-    // },
 }
