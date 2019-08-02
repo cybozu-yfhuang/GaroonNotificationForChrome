@@ -9,8 +9,8 @@ class CybozuAPI {
     password : String
     callback: Function
      */
-    login(userName, password, callback) {
-        let url = Constants.GAROON_PATH + Constants.Login_API;
+    login(userName, password, callback,errorCallback) {
+        let url = this.combineURL(Constants.Login_API);
         console.info("login url is: " + url);
         let data = {"username": userName,
                     "password": password};
@@ -19,7 +19,11 @@ class CybozuAPI {
             if (callback != null) {
                 callback();
             }
-        },"json");
+        },function(error) {
+            if (errorCallback != null) {
+                errorCallback();
+            }
+        });
     }
 
     /* 
@@ -27,7 +31,7 @@ class CybozuAPI {
     end :Date 
      */
     notificationList(start, end, callback) {
-        let url = Constants.GAROON_PATH + Constants.NOTIFICATION_LIST;
+        let url = this.combineURL(Constants.NOTIFICATION_LIST);
         console.log("notification list URL is " + url); 
         let data = { "start": start.toJSON()};
         if (end) {
@@ -47,7 +51,7 @@ class CybozuAPI {
     callback : Function
      */
     scheduleEventList(start, end, callback) {
-        let url = Constants.GAROON_PATH + Constants.SCHEDULE_EVENT_LIST;
+        let url = this.combineURL(Constants.SCHEDULE_EVENT_LIST);
         console.log("schedule event list url is " + url);
         let data = {"start": start.toJSON()};
         if (end) {
@@ -66,7 +70,7 @@ class CybozuAPI {
     callback: Function
      */
     scheduleFacilityList(callback) {
-        let url = Constants.GAROON_PATH + Constants.SCHEDULE_FACILITY_LIST;
+        let url = this.combineURL(Constants.SCHEDULE_FACILITY_LIST);
         $.post(url,null, function(resp) {
             callback();
         });
@@ -76,9 +80,17 @@ class CybozuAPI {
     callback : Function
      */
     mailReceive(callback) {
-        let url = Constants.GAROON_PATH + Constants.MAIL_RECEIVE;
+        let url = this.combineURL(Constants.MAIL_RECEIVE);
         $.post(url , null , function(resp) {
             callback(resp);
         });
+    }
+
+    combineURL(apiPath) {
+        let path = CybozuStorage.sharedInstance().url;
+        if (!path.endsWith("/")) {
+            path = path + "/";
+        }
+        return path + Constants.API_SUFFIX + apiPath;
     }
 }

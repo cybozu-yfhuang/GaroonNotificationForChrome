@@ -1,6 +1,10 @@
 class CybozuStorage {
 
     constructor(){
+        this.url = "";
+        this.userName = "";
+        this.password = "";
+
         this.alreadyLogin = false;
         this.updateInterval = 10; //minutes
         this.alarmTime = 5; //minutes
@@ -16,6 +20,10 @@ class CybozuStorage {
     }
 
     save() {
+        this.storage.setItem("url", this.url);
+        this.storage.setItem("userName", this.userName);
+        this.storage.setItem("password", this.password);
+
         this.storage.setItem("alreadyLogin", this.alreadyLogin);
         this.storage.setItem("updateInterval", this.updateInterval);
         this.storage.setItem("alarmTime", this.alarmTime);
@@ -23,8 +31,13 @@ class CybozuStorage {
 
     // private ===========================
     _loadAll() {
+        this._loadProperty("url", "");
+        this._loadProperty("userName", "");
+        this._loadProperty("password", "");
+
         this._loadProperty("alreadyLogin", false);
-        this._loadProperty("updateInterval", 20);
+        // this._loadProperty("updateInterval", 20);
+        this._loadProperty("updateInterval", 0.1);
         this._loadProperty("alarmTime", 5);
     }
 

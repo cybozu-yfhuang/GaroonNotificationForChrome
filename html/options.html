@@ -15,25 +15,25 @@
         <div id="tabs">
 
             <ul>
-                <li><a href="#optionsDiv">常规</a></li>
-                <li><a href="#loginDiv">账号</a></li>
+                <li><a href="#loginDiv">Account</a></li>
+                <li><a href="#optionsDiv">Common</a></li>
             </ul>
 
             <div id="optionsDiv">
                 <div id="intervalDiv">
                     <div>
-                        <p>更新间隔</p>
+                        <p>Update Interval</p>
                     </div>
                     <div>
                         <select id="intervalSelect" v-model="interval">
                             <option v-for="option in intervalOptions" v-bind:value="option">
                                 {{option}}
                             </option>
-                        </select>分钟
+                        </select>minutes
                     </div>
                 </div>
 
-                <div id="alarmDiv">
+                <!-- <div id="alarmDiv">
                     <div>
                         <p>预定的通知</p>
                     </div>
@@ -42,9 +42,9 @@
                             <option v-for="option in alarmOptions" v-bind:value="option">
                                 {{option}}
                             </option>
-                        </select>分钟
+                        </select>minutes
                     </div>
-                </div>
+                </div> -->
 
                 <div style="margin-top: 20px;">
                     <input id="saveButton" type="submit" value="Save" />
@@ -61,14 +61,14 @@
                         <p>URL</p>
                     </div>
                     <div>
-                        <input id="URLInput" type="text" placeholder="URL" />
+                        <input id="URLInput" class="text" type="text" placeholder="URL" v-bind:value="url" />
                     </div>
 
                     <div>
                         <p>Login Name</p>
                     </div>
                     <div>
-                        <input id="loginNameInput" type="text" placeholder="Login Name" />
+                        <input id="loginNameInput" class="text" type="text" placeholder="Login Name" v-bind:value="loginName" />
                     </div>
 
                     <div>
@@ -76,7 +76,7 @@
                     </div>
 
                     <div>
-                        <input id="loginPasswordInput" type="password" placeholder="Password" />
+                        <input id="loginPasswordInput" class="text" type="password" placeholder="Password" v-bind:value="password" />
                     </div>
 
                     <div style="margin-top: 20px;">
@@ -93,7 +93,13 @@
     <script type="text/javascript" src="../js/lib/vue.js"></script>
     <script type="text/javascript" src="../js/lib/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="../js/lib/jquery-ui.min.js"></script>
+    
+    <script type="text/javascript" src='../js/Constants.js'></script>
     <script type="text/javascript" src='../js/CybozuStorage.js'></script>
+    <script type="text/javascript" src="../js/api/APIClient.js"></script>
+    <script type="text/javascript" src="../js/api/CybozuAPI.js"></script>
+    <script type="text/javascript" src='../js/CybozuTimer.js'></script>
+    <script type="text/javascript" src='../js/Function.js'></script>
     <script type="text/javascript" src="./options.js"></script>
 
     </html>
