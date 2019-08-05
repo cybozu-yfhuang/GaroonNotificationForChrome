@@ -13,6 +13,9 @@
     },
     "permissions": [
         "https://*.cybozu.com/*",
+        "https://*.cybozu.cn/*",
+        "https://*.cybozu-dev.com/*",
+        "https://*.kintone.com/*",
         "notifications",
         "storage",
         "cookies"
