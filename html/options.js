@@ -1,4 +1,7 @@
+let bugout = new debugout();
 $(function() {
+    bugout.log("options -- start")
+
     let storage = CybozuStorage.sharedInstance();
 
     new Vue({
@@ -40,6 +43,8 @@ $(function() {
         let url = $("#URLInput").val();
         let userName = $("#loginNameInput").val();
         let password = $("#loginPasswordInput").val();
+        bugout.log("options -- loginButton clicked -- " + url + " + " + userName);
+
         storage.url = url;
         storage.userName = userName;
         storage.password = password;
@@ -58,10 +63,23 @@ $(function() {
     $("#intervalSelect").selectmenu();
     $("#alarmSelect").selectmenu();
     $("input[type=submit]").button();
+    $("input[type=button]").button();
+
     $("#saveButton").click(function(event) {
+
+
         storage.alarmTime = $("#alarmSelect").val();
         storage.updateInterval = $("#intervalSelect").val();
+        bugout.log("options -- saveButton clicked -- " + $("#alarmSelect").val());
+
         storage.save();
+        event.preventDefault();
+    });
+
+    $("#downloadLogButton").click(function(event) {
+        let bugout = new debugout();
+        bugout.log("options -- downloadLogButton clicked");        
+        bugout.downloadLog();
         event.preventDefault();
     });
 });
