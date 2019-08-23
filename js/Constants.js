@@ -20,4 +20,5 @@ class Constants {
     // static Refresh_Interval = 5 * 1000; //millisecond
     static DAY_MILLISECOND = 24 * 60 * 60 * 1000;
     static MINUTE_MILLISECOND = 60 * 1000;
+    static MAX_NOTIFICATION_COUNT = 3;
 }
