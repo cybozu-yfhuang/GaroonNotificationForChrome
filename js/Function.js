@@ -20,6 +20,7 @@ function startNotificationListLoop() {
                     }
                 }
 
+                bugout.log("background -- startNotificationListLoop -- notificationCount: " + notificationCount);
                 if (Constants.MAX_NOTIFICATION_COUNT < notificationCount) {
                     let notificationID = "To_Much_Notification";
                     CybozuNotifier.notify(notificationID, "Notifications", "You got " + notificationCount + " notifications", function(nid) {
