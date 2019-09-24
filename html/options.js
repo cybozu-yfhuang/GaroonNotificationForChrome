@@ -4,28 +4,28 @@ $(function() {
 
     let storage = CybozuStorage.sharedInstance();
 
-    new Vue({
-        el: '#optionsDiv',
-        data: {
-            intervalOptions: [
-                "0.1",
-                "10",
-                "20",
-                "30",
-                "40",
-                "50",
-                "60"
-            ],
-            alarmOptions: [
-                "5",
-                "10",
-                "15",
-                "20"
-            ],
-            interval: storage.updateInterval,
-            alarm: storage.alarmTime
-        }
-    });
+    // new Vue({
+    //     el: '#optionsDiv',
+    //     data: {
+    //         intervalOptions: [
+    //             "0.1",
+    //             "10",
+    //             "20",
+    //             "30",
+    //             "40",
+    //             "50",
+    //             "60"
+    //         ],
+    //         alarmOptions: [
+    //             "5",
+    //             "10",
+    //             "15",
+    //             "20"
+    //         ],
+    //         interval: storage.updateInterval,
+    //         alarm: storage.alarmTime
+    //     }
+    // });
 
     new Vue({ 
         el: "#loginDiv",
@@ -36,7 +36,12 @@ $(function() {
         }
     });
 
-    $("#tabs").tabs();
+    $("#intervalSelect option").map(function(index, elm){
+        if ( $(elm).val() == storage.updateInterval) {
+            elm.selected = true;
+        }
+    });
+    // $("#tabs").tabs();
 
     $("#loginButton").click(function(event) {
 
@@ -60,10 +65,10 @@ $(function() {
         event.preventDefault();
     });
 
-    $("#intervalSelect").selectmenu();
-    $("#alarmSelect").selectmenu();
-    $("input[type=submit]").button();
-    $("input[type=button]").button();
+    // $("#intervalSelect").selectmenu();
+    // $("#alarmSelect").selectmenu();
+    // $("input[type=submit]").button();
+    // $("input[type=button]").button();
 
     $("#saveButton").click(function(event) {
 
@@ -82,4 +87,31 @@ $(function() {
         bugout.downloadLog();
         event.preventDefault();
     });
+});
+
+$(document).ready(function() { 
+
+	(function ($) { 
+        $('.tab ul.tabs').addClass('active').find('> li:eq(0)').addClass('current');
+        
+		$('.tab ul.tabs li a').click(function (g) { 
+			var tab = $(this).closest('.tab'), 
+                index = $(this).closest('li').index();
+			
+            tab.find('ul.tabs > li').removeClass('current');
+            $(this).closest('li').addClass('current');
+
+            tab.find('.tab_content').find('div.tabs_item').not('div.tabs_item:eq(' + index + ')').hide();
+            if (index == 0)
+            {
+                tab.find('.tab_content').find('div.tabs_item:eq(' + index + ')').show("slide", { direction: "left" }, 200);
+            }
+            else {
+                tab.find('.tab_content').find('div.tabs_item:eq(' + index + ')').show("slide", { direction: "right" },200);
+            }
+
+			g.preventDefault();
+		} );
+	})(jQuery);
+
 });

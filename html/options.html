@@ -5,96 +5,10 @@
         <meta charset="UTF-8">
         <title>Desktop Setting</title>
         <link href="./options.css" rel="stylesheet" type="text/css" />
-        <link href="../css/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+        <!-- <link href="../css/jquery-ui.min.css" rel="stylesheet" type="text/css" />
         <link href="../css/jquery-ui.structure.min.css" type="text/css" />
-        <link href="../css/jquery-ui.theme.min.css" type="text/css" />
+        <link href="../css/jquery-ui.theme.min.css" type="text/css" /> -->
     </head>
-
-    <body>
-
-        <div id="tabs">
-
-            <ul>
-                <li><a href="#loginDiv">Account</a></li>
-                <li><a href="#optionsDiv">Common</a></li>
-            </ul>
-
-            <div id="optionsDiv">
-                <div id="intervalDiv">
-                    <div>
-                        <p>Update Interval</p>
-                    </div>
-                    <div>
-                        <select id="intervalSelect" v-model="interval">
-                            <option v-for="option in intervalOptions" v-bind:value="option">
-                                {{option}}
-                            </option>
-                        </select>minutes
-                    </div>
-                </div>
-
-                <!-- <div id="alarmDiv">
-                    <div>
-                        <p>预定的通知</p>
-                    </div>
-                    <div>
-                        <select id="alarmSelect" v-model="alarm">
-                            <option v-for="option in alarmOptions" v-bind:value="option">
-                                {{option}}
-                            </option>
-                        </select>minutes
-                    </div>
-                </div> -->
-
-                <div style="margin-top: 20px;">
-                    <input id="saveButton" type="submit" value="Save" />
-                </div>
-
-            </div>
-
-            <div id="loginDiv">
-                <div id="accountDiv">
-                    
-                </div>
-                <form>
-                    <div>
-                        <p>URL</p>
-                    </div>
-                    <div>
-                        <input id="URLInput" class="text" type="text" placeholder="URL" v-bind:value="url" />
-                    </div>
-
-                    <div>
-                        <p>Login Name</p>
-                    </div>
-                    <div>
-                        <input id="loginNameInput" class="text" type="text" placeholder="Login Name" v-bind:value="loginName" />
-                    </div>
-
-                    <div>
-                        <p>Password</p>
-                    </div>
-
-                    <div>
-                        <input id="loginPasswordInput" class="text" type="password" placeholder="Password" v-bind:value="password" />
-                    </div>
-
-                    <div style="margin-top: 20px;">
-                        <input id="loginButton" type="submit" value="Login" />
-                    </div>
-
-                    <div style="margin-top: 20px;">
-                        <input id="downloadLogButton" type="button" value="Download Log" />
-                    </div>
-
-                </form>
-
-            </div>
-
-        </div>
-
-    </body>
-
     <script type="text/javascript" src="../js/lib/debugout.js"></script>
     <script type="text/javascript" src="../js/lib/vue.js"></script>
     <script type="text/javascript" src="../js/lib/jquery-3.4.1.min.js"></script>
@@ -107,5 +21,76 @@
     <script type="text/javascript" src='../js/CybozuTimer.js'></script>
     <script type="text/javascript" src='../js/Function.js'></script>
     <script type="text/javascript" src="./options.js"></script>
+    <body >
+        <div class="tab">
+            <ul class="tabs">
+                    <li><a href="#" class="a_ss">Account</a></li>
+                    <li><a href="#" class="a_ss">Common</a></li>
+            </ul> 
+                    
+            <div class="tab_content">
+                <div class="tabs_item" id="loginDiv" style="background-color: white;text-align: left;">
+                        <div id="accountDiv"></div>
+                        <form style="padding-left: 35px; padding-right: 35px;">
+                            <div class="mmarginbottom10">
+                                <input id="URLInput" class="input_text" type="text" placeholder="Please enter the domain name of Garoon" v-bind:value="url" />
+                            </div>
+
+                            <div class="mmarginbottom10">
+                                <input id="loginNameInput" class="input_text" type="text" placeholder="Please enter the Login Name" v-bind:value="loginName" />
+                            </div>
+
+                            <div class="mmarginbottom10">
+                                <input id="loginPasswordInput" class="input_text" type="password" placeholder="Please enter the Password" v-bind:value="password" />
+                            </div>
+                            
+                            <div style="margin-top: 20px;height:40px;">
+                                <div id="loginButton"  class="loginbtn" >
+                                    <a href="#">Login</a>
+                                </div>
+                                <div id="downloadLogButton" class="loginbtn">
+                                    <a href="#">Download Log</a>
+                                </div>
+                            </div>
+                        </form> 
+                </div>
+                    
+                <div class="tabs_item" style="background-color:white;display: none;" id="optionsDiv">
+                    <table style="margin-left: 20px;margin-right: 20px;width: 100%;">
+                        <tr>
+                            <th >Update Interval:</th>
+                            <td style="text-align: left;">
+                                <select id="intervalSelect" v-model="interval">
+                                    <option value="0.1" selected>0.1</option>
+                                    <option value="10">10</option>
+                                    <option value="20">20</option>
+                                    <option value="30">30</option>
+                                    <option value="40">40</option>
+                                    <option value="50">50</option>
+                                    <option value="60">60</option>
+                                </select>
+                                minutes
+                            </td>
+                        </tr>
+                        <tr style="height: 100px;padding-top: 20px;">
+                            <td colspan="2" style="text-align: center;">
+                                <div id="saveButton" class="loginbtn">
+                                    <a href="#"> Save </a>
+                                </div>
+                            </td>
+                        </tr>
+                        
+                    </table>
+                </div>
+            </div>
+            <div style="margin-top: 20px;">
+                 <span>Welcome to the config page of Cybozu Chrome Desktop.</span>               
+            </div>
+        </div> <!-- / tab -->
+
+        
+    </body>
+
+
 
     </html>
