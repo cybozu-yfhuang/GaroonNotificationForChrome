@@ -24,8 +24,8 @@
     <body >
         <div class="tab">
             <ul class="tabs">
-                    <li><a href="#" class="a_ss">Account</a></li>
-                    <li><a href="#" class="a_ss">Common</a></li>
+                    <li><a href="#" class="a_ss">アカウント</a></li>
+                    <li><a href="#" class="a_ss">通用</a></li>
             </ul> 
                     
             <div class="tab_content">
@@ -46,11 +46,11 @@
                             
                             <div style="margin-top: 20px;height:40px;">
                                 <div id="loginButton"  class="loginbtn" >
-                                    <a href="#">Login</a>
+                                    <a href="#">ロゴイン</a>
                                 </div>
-                                <div id="downloadLogButton" class="loginbtn">
+                                <!-- <div id="downloadLogButton" class="loginbtn">
                                     <a href="#">Download Log</a>
-                                </div>
+                                </div> -->
                             </div>
                         </form> 
                 </div>
@@ -58,7 +58,7 @@
                 <div class="tabs_item" style="background-color:white;display: none;" id="optionsDiv">
                     <table style="margin-left: 20px;margin-right: 20px;width: 100%;">
                         <tr>
-                            <th >Update Interval:</th>
+                            <th >更新間隔:</th>
                             <td style="text-align: left;">
                                 <select id="intervalSelect" v-model="interval">
                                     <option value="0.1" selected>0.1</option>
@@ -69,13 +69,13 @@
                                     <option value="50">50</option>
                                     <option value="60">60</option>
                                 </select>
-                                minutes
+                                分
                             </td>
                         </tr>
                         <tr style="height: 100px;padding-top: 20px;">
                             <td colspan="2" style="text-align: center;">
                                 <div id="saveButton" class="loginbtn">
-                                    <a href="#"> Save </a>
+                                    <a href="#"> 保存 </a>
                                 </div>
                             </td>
                         </tr>
