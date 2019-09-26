@@ -42,8 +42,26 @@ $(function() {
         }
     });
     // $("#tabs").tabs();
+    var isloging = false;
+
+    function showLoading(){
+        isloging = true;
+        $('#loginButton').hide();
+        $('#loaddingDiv').show();
+    }
+
+    function hideLoading(){
+        isloging = false;
+        $('#loginButton').show();
+        $('#loaddingDiv').hide();
+    }
 
     $("#loginButton").click(function(event) {
+        if (isloging) {
+            return;
+        }
+        
+        showLoading();
 
         let url = $("#URLInput").val();
         let userName = $("#loginNameInput").val();
@@ -57,13 +75,20 @@ $(function() {
         let api = new CybozuAPI();
         api.login(userName, password,function(params) {
             storage.save();
+
+            hideLoading();
+
             alert("Login Success");
         }, function() {
+            hideLoading();
+
             alert("Login Error");
         });
 
         event.preventDefault();
     });
+
+
 
     // $("#intervalSelect").selectmenu();
     // $("#alarmSelect").selectmenu();
