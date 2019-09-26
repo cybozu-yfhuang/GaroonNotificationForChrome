@@ -26,7 +26,7 @@ function startNotificationListLoop() {
                     CybozuNotifier.notify(notificationID, "Notifications", "You got " + notificationCount + " notifications", function(nid) {
                         if (nid == notificationID) {
                             chrome.tabs.create({url: storage.url + "notification/"});
-                        }   
+                        }
                     });
                 }
                 else {

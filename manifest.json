@@ -6,11 +6,17 @@
     "browser_action" : {
         "default_title" : "Cybozu Desktop~~",
         "default_icon" :{
-            "16" : "images/icon16.png",
-            "24" : "images/icon24.png",
-            "32" : "images/icon32.png"
+            "16" : "images/pkq.png",
+            "24" : "images/pkq.png",
+            "32" : "images/pkq.png"
         }
     },
+    "icons": {
+        "16": "images/pkq.png",
+        "48": "images/pkq.png",
+        "128": "images/pkq.png"
+    },
+
     "permissions": [
         "https://*.cybozu.com/*",
         "https://*.cybozu.cn/*",

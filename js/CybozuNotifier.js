@@ -6,16 +6,10 @@ class CybozuNotifier {
                 if (!nids[id]) {
                     var opt = {
                         type: "basic",
-                        iconUrl: '/images/icon32.png',
+                        iconUrl: '/images/pkq.png',
                         title: title,
                         message: message
                     };
-                    // chrome.alarms.create(id, {
-                    //     "when": 
-                    // });
-                    // chrome.alarms.onAlarm.addListener(function() {
-                        
-                    // });
                     chrome.notifications.create(id, opt);
                     chrome.notifications.onClicked.addListener(function (notificationID) {
                         callback(notificationID);
