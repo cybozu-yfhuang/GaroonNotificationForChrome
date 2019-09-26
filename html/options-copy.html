@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Desktop Setting</title>
+    <link href="./options.css" rel="stylesheet" type="text/css" />
+    <link href="../css/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+    <link href="../css/jquery-ui.structure.min.css" type="text/css" />
+    <link href="../css/jquery-ui.theme.min.css" type="text/css" />
+</head>
+
+<body>
+
+    <div id="tabs">
+
+        <ul>
+            <li><a href="#loginDiv">Account</a></li>
+            <li><a href="#optionsDiv">Common</a></li>
+        </ul>
+
+        <div id="optionsDiv">
+            <div id="intervalDiv">
+                <div>
+                    <p>Update Interval</p>
+                </div>
+                <div>
+                    <select id="intervalSelect" v-model="interval">
+                        <option v-for="option in intervalOptions" v-bind:value="option">
+                            {{option}}
+                        </option>
+                    </select>minutes
+                </div>
+            </div>
+
+            <!-- <div id="alarmDiv">
+                <div>
+                    <p>预定的通知</p>
+                </div>
+                <div>
+                    <select id="alarmSelect" v-model="alarm">
+                        <option v-for="option in alarmOptions" v-bind:value="option">
+                            {{option}}
+                        </option>
+                    </select>minutes
+                </div>
+            </div> -->
+
+            <div style="margin-top: 20px;">
+                <input id="saveButton" type="submit" value="Save" />
+            </div>
+
+        </div>
+
+        <div id="loginDiv">
+            <div id="accountDiv">
+                
+            </div>
+            <form>
+                <div>
+                    <p>URL</p>
+                </div>
+                <div>
+                    <input id="URLInput" class="text" type="text" placeholder="URL" v-bind:value="url" />
+                </div>
+
+                <div>
+                    <p>Login Name</p>
+                </div>
+                <div>
+                    <input id="loginNameInput" class="text" type="text" placeholder="Login Name" v-bind:value="loginName" />
+                </div>
+
+                <div>
+                    <p>Password</p>
+                </div>
+
+                <div>
+                    <input id="loginPasswordInput" class="text" type="password" placeholder="Password" v-bind:value="password" />
+                </div>
+
+                <div style="margin-top: 20px;">
+                    <input id="loginButton" type="submit" value="Login" />
+                </div>
+
+                <div style="margin-top: 20px;">
+                    <input id="downloadLogButton" type="button" value="Download Log" />
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+
+<script type="text/javascript" src="../js/lib/debugout.js"></script>
+<script type="text/javascript" src="../js/lib/vue.js"></script>
+<script type="text/javascript" src="../js/lib/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="../js/lib/jquery-ui.min.js"></script>
+
+<script type="text/javascript" src='../js/Constants.js'></script>
+<script type="text/javascript" src='../js/CybozuStorage.js'></script>
+<script type="text/javascript" src="../js/api/APIClient.js"></script>
+<script type="text/javascript" src="../js/api/CybozuAPI.js"></script>
+<script type="text/javascript" src='../js/CybozuTimer.js'></script>
+<script type="text/javascript" src='../js/Function.js'></script>
+<script type="text/javascript" src="./options.js"></script>
+
+</html>
