@@ -50,10 +50,4 @@ class CybozuStorage {
             this[name] = value;
         }
     }
-
-    // _saveProperty(name, value) {
-    //     this.
-
-    // }
-
 }

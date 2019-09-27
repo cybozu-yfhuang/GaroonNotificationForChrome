@@ -80,7 +80,7 @@ function debugout() {
 		var segment = lines.slice(lineNumber, lineNumber + numLines);
 		return segment.join('\n');
 	}
-	// immediately downloads the log - for desktop browser use
+	// immediately downloads the log - for browser use
 	this.downloadLog = function() {
 	    var logFile = self.getLog();
             var blob = new Blob([logFile], { type: 'data:text/plain;charset=utf-8' });

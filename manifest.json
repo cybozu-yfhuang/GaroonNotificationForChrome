@@ -1,10 +1,10 @@
 {
-    "name": "Cybozu Chrome Desktop",
+    "name": "Garoon Notification",
     "version" : "1.0",
     "manifest_version" : 2,
-    "description" : "Cybozu Desktop" ,
+    "description" : "Garoon Notification" ,
     "browser_action" : {
-        "default_title" : "Cybozu Desktop~~",
+        "default_title" : "Garoon Notification~~",
         "default_icon" :{
             "16" : "images/pkq.png",
             "24" : "images/pkq.png",
