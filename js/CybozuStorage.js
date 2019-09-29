@@ -37,7 +37,7 @@ class CybozuStorage {
 
         this._loadProperty("alreadyLogin", false);
         // this._loadProperty("updateInterval", 20);
-        this._loadProperty("updateInterval", 0.1);
+        this._loadProperty("updateInterval", 2);
         this._loadProperty("alarmTime", 5);
     }
 
