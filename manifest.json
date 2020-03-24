@@ -6,15 +6,15 @@
     "browser_action" : {
         "default_title" : "Garoon Notification~~",
         "default_icon" :{
-            "16" : "images/pkq.png",
-            "24" : "images/pkq.png",
-            "32" : "images/pkq.png"
+            "16" : "images/Glogo.png",
+            "24" : "images/Glogo.png",
+            "32" : "images/Glogo.png"
         }
     },
     "icons": {
-        "16": "images/pkq.png",
-        "48": "images/pkq.png",
-        "128": "images/pkq.png"
+        "16": "images/Glogo.png",
+        "48": "images/Glogo.png",
+        "128": "images/Glogo.png"
     },
 
     "permissions": [
