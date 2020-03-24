@@ -6,7 +6,7 @@ class CybozuNotifier {
                 if (!nids[id]) {
                     var opt = {
                         type: "basic",
-                        iconUrl: '/images/pkq.png',
+                        iconUrl: '/images/Glogo.png',
                         title: title,
                         message: message
                     };
